@@ -42,11 +42,11 @@ const mapStyle = {
 
 }
 const containerStyle = {
-  width: '75%',
-  left: '25%'
+  // width: '75%',
+  // left: '25%'
 }
 
-export const MapContainer = ({ children, latitude, longitude, zoomLevel, loaded, google}) => {
+export const MapContainer = ({ children, latitude, longitude, zoomLevel, visible = true, google }) => {
   const initialCenter = {
     lat: latitude,
     lng: longitude
@@ -63,6 +63,8 @@ export const MapContainer = ({ children, latitude, longitude, zoomLevel, loaded,
          styles={MAP_STYLE}
          style={mapStyle}
          containerStyle={containerStyle}
+         scrollwheel={false}
+         visible={visible}
     >
       {children}
     </Map>

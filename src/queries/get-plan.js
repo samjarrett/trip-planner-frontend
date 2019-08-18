@@ -17,16 +17,6 @@ const GET_PLAN_QUERY = gql`
         latitude
         longitude
         googlePlaceId
-        notes{
-          created
-          body
-          automated
-          creator {
-            id
-            firstName
-            email
-          }
-        }
       }
     }
   }
