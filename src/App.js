@@ -16,8 +16,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const BACKEND_HOST = process.env.REACT_APP_BACKEND_HOST || window.location.origin;
 const client = new ApolloClient({
-  uri: 'http://192.168.1.125:8000/graphql/'
+  uri: `${BACKEND_HOST}/graphql/`
 });
 
 const App = () => (
