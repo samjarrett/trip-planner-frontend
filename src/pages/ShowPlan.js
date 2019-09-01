@@ -77,7 +77,7 @@ const Plan = ({ plan }) => {
       </AddButtonContainer>
 
       <Aside active={asideActive}>
-        {plan.ideas.map((idea) =>
+        {asideActive && plan.ideas.map((idea) =>
           <Card key={idea.id} idea={idea} />
         )}
       </Aside>
