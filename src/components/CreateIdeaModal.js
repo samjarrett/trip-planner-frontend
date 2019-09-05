@@ -141,6 +141,12 @@ const CreateIdeaModal = withRouter((props) => {
               label="Accommodation"
               labelPlacement="end"
             />
+            <FormControlLabel
+              value="restaurant"
+              control={<Radio color="primary" />}
+              label="Restaurant"
+              labelPlacement="end"
+            />
           </RadioGroup>
         </FormControl>
         <div>

@@ -10,7 +10,8 @@ import withPlan from '../PlanWrapper';
 
 const IDEA_ICONS = {
   ACCOMMODATION: "accommodation.png",
-  IDEA: null
+  IDEA: "pin.png",
+  RESTAURANT: "restaurant.png"
 }
 
 const Aside = styled.aside`
