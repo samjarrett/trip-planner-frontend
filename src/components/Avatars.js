@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import MUIAvatar from '@material-ui/core/Avatar';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -15,11 +15,19 @@ const AvatarWrapper = styled.div`
   flex-grow: 1;
 
   > * {
-    margin-right: -1rem;
+    margin-right: -0.75rem;
     border: 2px solid #fff
   }
   > *:last-child {
     margin-right: 0;
+  }
+
+  :hover > * {
+    opacity: 0.3;
+  }
+  :hover > *:hover {
+    opacity: 1;
+    z-index: 1000;
   }
 `;
 
@@ -30,6 +38,26 @@ const Summary = styled.p`
   align-self: center;
 `;
 
+function hashCode(str) { // java String#hashCode
+  let hash = 0;
+  for (var i = 0; i < str.length; i++) {
+     hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return hash;
+}
+
+function intToRGB(i){
+  const c = (i & 0x00FFFFFF)
+      .toString(16)
+      .toUpperCase();
+
+  return "00000".substring(0, 6 - c.length) + c;
+}
+
+const Avatar = styled(MUIAvatar)`
+  background-color: #${props => intToRGB(hashCode(props.hash))} !important;
+`;
+
 const Avatars = ({ users }) => (
   <Wrapper>
     <Summary>{users.length} travellers</Summary>
@@ -37,9 +65,11 @@ const Avatars = ({ users }) => (
       {users.map(user =>
         <Avatar
           key={user.id}
-          alt={user.firstName}
-          imgProps={{title: user.firstName}}
-          src={`http://gravatar.com/avatar/${user.gravatarHash}?d=mp`} />
+          title={user.firstName}
+          hash={user.gravatarHash}
+          >
+            {user.firstName[0]}
+        </Avatar>
       )}
     </AvatarWrapper>
   </Wrapper>
