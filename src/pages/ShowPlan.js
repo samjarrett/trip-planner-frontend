@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Avatars from '../components/Avatars';
 import Map from '../components/Map';
 import Card from '../components/Card';
+import Link from '../components/Link';
 import withPlan from '../PlanWrapper';
 
 const IDEA_ICONS = {
@@ -72,7 +73,7 @@ const Plan = ({ plan }) => {
         </Fab>
       </MenuButtonContainer>
       <AddButtonContainer>
-        <Fab color="primary" aria-label="add" href={`/${plan.key}/new`}>
+        <Fab color="primary" aria-label="add" to={`/${plan.key}/new`} component={Link}>
           <AddIcon />
         </Fab>
       </AddButtonContainer>
