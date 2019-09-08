@@ -1,22 +1,32 @@
 import React from 'react';
-import logo from '../logo.svg';
+import withUser from '../withUser';
+import { Redirect, Link } from "react-router-dom";
+import Login from '../components/Login';
 
-const Home = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React.
-      </a>
-    </header>
-  </div>
-);
-export default Home;
+const Home = ({ user }) => {
+
+  if (user === null) {
+    return (<Login />);
+  }
+
+  if (user.plans.length === 1) {
+    return (
+      <Redirect to={`/${user.plans[0].key}`} />
+    );
+  }
+
+  return (
+    <>
+      <h2>You have {user.plans.length} plans to chose from.</h2>
+      <ul>
+        {user.plans.map((plan) =>
+          <li>
+            <Link to={`/${plan.key}`}>{plan.key}</Link>
+          </li>
+        )}
+      </ul>
+    </>
+  );
+}
+
+export default withUser(Home);
