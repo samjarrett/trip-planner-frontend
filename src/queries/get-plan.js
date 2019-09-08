@@ -18,6 +18,12 @@ const GET_PLAN_QUERY = gql`
         longitude
         googlePlaceId
       }
+
+      users {
+        id
+        firstName
+        gravatarHash
+      }
     }
   }
 `;

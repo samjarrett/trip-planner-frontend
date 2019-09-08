@@ -4,6 +4,7 @@ import { Marker, InfoWindow } from 'google-maps-react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
+import Avatars from '../components/Avatars';
 import Map from '../components/Map';
 import Card from '../components/Card';
 import withPlan from '../PlanWrapper';
@@ -21,7 +22,6 @@ const Aside = styled.aside`
   width: 100%;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.9);
-  padding-top: 4rem;
   overflow: auto;
 
   transition: left 1000ms ease, top 1000ms ease;
@@ -78,6 +78,7 @@ const Plan = ({ plan }) => {
       </AddButtonContainer>
 
       <Aside active={asideActive}>
+        {asideActive && <Avatars users={plan.users} />}
         {asideActive && plan.ideas.map((idea) =>
           <Card key={idea.id} idea={idea} />
         )}
