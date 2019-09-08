@@ -1,7 +1,9 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import { withRouter } from "react-router-dom";
 import styled from 'styled-components';
+import Link from './Link';
 
 const Wrapper = styled(Paper)`
   margin: 1rem;
@@ -12,18 +14,26 @@ const CancelWrapper = styled.div`
   text-align: right;
 `;
 
-const Card = ({ idea }) => {
+const Title = styled.h4`
+  margin: 0;
+`;
+
+const Card = withRouter(({ idea, match }) => {
+  let i = 0;
+
   return (
     <Wrapper>
-      <a href="#">{idea.title}</a>
+      <Title>{idea.title}</Title>
       { idea.description &&
-        <p>{idea.description}</p>
+        idea.description.split("\n").map((item) =>
+            <p key={++i}>{item}</p>
+        )
       }
       <CancelWrapper>
-        <Button>Open</Button>
-        <Button>Edit</Button>
+        <Button to={`${match.url}/${idea.id}`} component={Link}>Open</Button>
+        {/* <Button to={`${match.url}/${idea.id}/edit`} component={Link}>Edit</Button> */}
       </CancelWrapper>
     </Wrapper>
   );
-}
+});
 export default Card;
