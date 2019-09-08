@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
 import Fab from '@material-ui/core/Fab';
 import ArrowBack from '@material-ui/icons/ArrowBack';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import Link from './Link';
 import Note from './Note';
-import Avatar from './Avatar';
-import withUser from '../withUser';
+import CreateNote from './CreateNote';
+
 
 const Modal = styled.div`
   position: fixed;
@@ -34,19 +31,7 @@ const BackButtonContainer = styled.div`
   z-index: 1000;
 `;
 
-const Wrapper = styled(Paper)`
-  margin: 1rem;
-  padding: 1rem;
-  display: flex;
-  align-items: flex-start;
-`;
-
-const NoteForm = styled.form`
-  margin-left: 1rem;
-  flex-grow: 1;
-`;
-
-const ShowIdeaModal = ({ google, map, idea, planKey, user }) => {
+const ShowIdeaModal = ({ google, map, idea, planKey }) => {
   useEffect(() => {
     if (!map) {
       return;
@@ -71,17 +56,7 @@ const ShowIdeaModal = ({ google, map, idea, planKey, user }) => {
         )
       }
 
-      <Wrapper>
-        <Avatar user={user} />
-        <NoteForm>
-          <TextField fullWidth={true} label="Note" name="body" type="text" multiline={true} variant="outlined" />
-          <div>
-            <Button color="primary" size="small" type="submit">
-              Save
-            </Button>
-          </div>
-        </NoteForm>
-      </Wrapper>
+      <CreateNote />
 
       {idea.notes.map((note) =>
         <Note note={note} />
@@ -96,4 +71,4 @@ const ShowIdeaModal = ({ google, map, idea, planKey, user }) => {
   );
 };
 
-export default withUser(ShowIdeaModal);
+export default ShowIdeaModal;
