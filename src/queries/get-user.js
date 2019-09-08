@@ -4,6 +4,8 @@ const GET_USER_QUERY = gql`
   query getUser {
     user {
       id
+      firstName
+      gravatarHash
       plans {
         key
       }

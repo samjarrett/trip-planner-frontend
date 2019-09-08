@@ -9,12 +9,7 @@ import Map from '../components/Map';
 import Card from '../components/Card';
 import Link from '../components/Link';
 import withPlan from '../PlanWrapper';
-
-const IDEA_ICONS = {
-  ACCOMMODATION: "accommodation.png",
-  IDEA: "pin.png",
-  RESTAURANT: "restaurant.png"
-}
+import IDEA_ICONS from '../marker-icons';
 
 const Aside = styled.aside`
   position: fixed;
@@ -104,7 +99,6 @@ const Plan = ({ plan }) => {
             key={idea.id}
             onClick={onMarkerClick}
             idea={idea}
-            name={idea.title}
             title={idea.title}
             position={{lat: idea.latitude, lng: idea.longitude}}
             icon={IDEA_ICONS[idea.type]} />
