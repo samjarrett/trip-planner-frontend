@@ -28,7 +28,8 @@ const Aside = styled.aside`
   transition: left 1000ms ease, top 1000ms ease;
 
   @media (min-width: 768px) {
-    max-width: 33%;
+    width: 45%;
+    max-width: 450px;
     height: 100%;
     top: 0;
     left: ${props => props.active ? "0" : "-100%"};

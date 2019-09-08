@@ -22,6 +22,7 @@ const GET_PLAN_QUERY = gql`
       users {
         id
         firstName
+        lastName
         gravatarHash
       }
     }
