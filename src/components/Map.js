@@ -27,14 +27,6 @@ const MAP_STYLE = [
         "visibility": "off"
       }
     ]
-  },
-  {
-    "featureType": "transit",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
   }
 ];
 
