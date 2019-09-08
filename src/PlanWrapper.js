@@ -16,6 +16,10 @@ function withPlan(WrappedComponent) {
 
     const plan = data.plan;
 
+    if (plan === null) {
+      return null;
+    }
+
     return (
       <WrappedComponent plan={plan} {...props} />
     )
