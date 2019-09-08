@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Marker, InfoWindow } from 'google-maps-react';
 import Fab from '@material-ui/core/Fab';
@@ -51,9 +51,21 @@ const AddButtonContainer = styled.div`
   z-index: 1000;
 `;
 
+function isAsideActiveInBrowser() {
+  return window.localStorage.asideActive === "active";
+}
+
+function updateAsideActiveStatusInBrowser(asideActive) {
+  window.localStorage.asideActive = asideActive ? "active" : "inactive";
+}
+
 const Plan = ({ plan }) => {
-  const [asideActive, setAsideActive] = useState(false);
+  const [asideActive, setAsideActive] = useState(isAsideActiveInBrowser());
   const [activeIdea, setActiveIdea] = useState(null);
+
+  useEffect(() => {
+    updateAsideActiveStatusInBrowser(asideActive);
+  }, [asideActive]);
 
   const onMarkerClick = (props, marker, e) => {
     setActiveIdea({
