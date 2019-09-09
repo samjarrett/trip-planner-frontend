@@ -94,7 +94,7 @@ const ShowIdeaModal = ({ google, map, idea, planKey }) => {
         )
       }
 
-      <CreateNote />
+      <CreateNote ideaId={idea.id} />
 
       {idea.notes.map((note) =>
         <Note key={note.id} note={note} />
