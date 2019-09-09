@@ -6,6 +6,8 @@ const LOGIN_MUTATION = gql`
       success
       user {
         id
+        firstName
+        gravatarHash
         plans {
           key
         }
