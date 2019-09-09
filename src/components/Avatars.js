@@ -43,7 +43,7 @@ const Avatars = ({ users }) => (
     <Summary>{users.length} travellers</Summary>
     <AvatarWrapper>
       {users.map(user =>
-        <Avatar user={user} />
+        <Avatar key={user.id} user={user} />
       )}
     </AvatarWrapper>
   </Wrapper>
