@@ -24,7 +24,6 @@ const AvatarButton = styled(MUIAvatar)`
 
 const Avatar = ({ user }) => (
   <AvatarButton
-    key={user.id}
     title={user.firstName}
     hash={user.gravatarHash}
     >
