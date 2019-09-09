@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import withUser from '../withUser';
 import ShowPlan from './ShowPlan';
 import CreateIdea from './CreateIdea';
@@ -14,11 +14,11 @@ const Plan = ({ match, user }) => {
   }
 
   return (
-    <>
+    <Switch>
       <Route path={`${match.path}/new`} component={CreateIdea} />
       <Route path={`${match.path}/:idea`} component={ShowIdea} />
       <Route exact path={match.path} component={ShowPlan} />
-    </>
+    </Switch>
   );
 };
 export default withUser(Plan);
