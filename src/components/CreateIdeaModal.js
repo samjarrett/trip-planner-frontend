@@ -60,7 +60,7 @@ const CreateIdeaModal = withRouter((props) => {
   const [createIdea] = useMutation(CREATE_IDEA_MUTATION, {
     update(cache, { data: { createIdea } }) {
       const { plan } = cache.readQuery({ query: GET_PLAN_QUERY, variables: { key: planKey } });
-      const ideas = plan.ideas.unshift(createIdea.idea);
+      const ideas = [createIdea.idea].concat(plan.ideas);
 
       cache.writeQuery({
         query: GET_PLAN_QUERY,
