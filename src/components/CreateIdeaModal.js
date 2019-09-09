@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import Link from './Link';
+import IDEA_ICONS from '../marker-icons';
 
 import GET_PLAN_QUERY from '../queries/get-plan';
 import CREATE_IDEA_MUTATION from '../queries/create-idea';
@@ -148,6 +149,12 @@ const CreateIdeaModal = withRouter((props) => {
               label="Restaurant"
               labelPlacement="end"
             />
+            <FormControlLabel
+              value="shopping"
+              control={<Radio color="primary" />}
+              label="Shopping"
+              labelPlacement="end"
+            />
           </RadioGroup>
         </FormControl>
         <div>
@@ -157,7 +164,7 @@ const CreateIdeaModal = withRouter((props) => {
           <CancelButton color="secondary" to={`/${plan.key}`} component={Link}>Cancel</CancelButton>
         </div>
       </form>
-      { state.googlePlaceId && <Marker google={google} map={map} position={{lat: state.latitude, lng: state.longitude}} />}
+      { state.googlePlaceId && <Marker google={google} map={map} position={{lat: state.latitude, lng: state.longitude}} icon={IDEA_ICONS[state.type.toUpperCase()]} />}
     </Modal>
   );
 });
