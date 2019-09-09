@@ -40,7 +40,6 @@ const Login = withRouter(({ history }) => {
   const [state, setState] = useState(DEFAULT_STATE);
   const [login] = useMutation(LOGIN_MUTATION, {
     update(cache, { data: { login: { success, user } } }) {
-      console.log(user, success);
       if (success) {
         cache.writeQuery({
           query: GET_USER_QUERY,
