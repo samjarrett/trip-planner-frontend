@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Marker, InfoWindow } from 'google-maps-react';
+import { Marker } from 'google-maps-react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -54,23 +54,15 @@ function updateAsideActiveStatusInBrowser(asideActive) {
   window.localStorage.asideActive = asideActive ? "active" : "inactive";
 }
 
-const Plan = ({ plan }) => {
+const Plan = ({ plan, match, history }) => {
   const [asideActive, setAsideActive] = useState(isAsideActiveInBrowser());
-  const [activeIdea, setActiveIdea] = useState(null);
 
   useEffect(() => {
     updateAsideActiveStatusInBrowser(asideActive);
   }, [asideActive]);
 
-  const onMarkerClick = (props, marker, e) => {
-    setActiveIdea({
-      idea: props.idea,
-      marker: marker
-    });
-  };
-
-  const onInfoWindowClose = () => {
-    setActiveIdea(null);
+  const onMarkerClick = (props) => {
+    history.push(`/${plan.key}/${props.idea.id}`)
   };
 
   return (
@@ -103,17 +95,6 @@ const Plan = ({ plan }) => {
             position={{lat: idea.latitude, lng: idea.longitude}}
             icon={IDEA_ICONS[idea.type]} />
         )}
-
-        <InfoWindow marker={activeIdea ? activeIdea.marker : null} visible={activeIdea !== null} onClose={onInfoWindowClose}>
-          <div>
-            { activeIdea &&
-              <>
-                <h1>{activeIdea.idea.title}</h1>
-                {activeIdea.idea.description && <p>{activeIdea.idea.description}</p>}
-              </>
-            }
-          </div>
-        </InfoWindow>
       </Map>
     </div>
   );
