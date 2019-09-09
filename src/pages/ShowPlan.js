@@ -16,9 +16,11 @@ const Aside = styled.aside`
   top: ${props => props.active ? "0" : "-100%"};
   left: 0;
   width: 100%;
+  max-height: 100%;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.9);
   overflow: auto;
+  padding-bottom: 1rem;
 
   transition: left 1000ms ease, top 1000ms ease;
 
