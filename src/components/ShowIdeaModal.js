@@ -73,7 +73,9 @@ const ShowIdeaModal = ({ google, map, idea, planKey }) => {
         map.fitBounds(place.geometry.viewport);
       }
 
-      setImages(place.photos);
+      if (place.photos) {
+        setImages(place.photos);
+      }
     });
   }, [idea.googlePlaceId, map, google]);
 
