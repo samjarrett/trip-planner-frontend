@@ -20,7 +20,7 @@ const Home = ({ user }) => {
       <h2>You have {user.plans.length} plans to chose from.</h2>
       <ul>
         {user.plans.map((plan) =>
-          <li>
+          <li key={plan.key}>
             <Link to={`/${plan.key}`}>{plan.key}</Link>
           </li>
         )}
