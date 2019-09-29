@@ -18,7 +18,7 @@ const PlanList = ({ user }) => (
   <FullPageModal>
     <AvatarContainer><Avatar user={user} /></AvatarContainer>
     <h2>Hey {user.firstName}!</h2>
-    <p>You have multiple trips to chose from.</p>
+    <p>You have multiple trips to choose from.</p>
     {user.plans.map((plan) =>
       <Card sideMargins={false} key={plan.key} title={plan.key} linkDestination={`/${plan.key}`}/>
     )}
