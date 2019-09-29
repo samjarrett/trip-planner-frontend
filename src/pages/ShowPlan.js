@@ -6,7 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
 import Avatars from '../components/Avatars';
 import Map from '../components/Map';
-import Card from '../components/Card';
+import IdeaCard from '../components/IdeaCard';
 import Link from '../components/Link';
 import withPlan from '../PlanWrapper';
 import IDEA_ICONS from '../marker-icons';
@@ -83,7 +83,7 @@ const Plan = ({ plan, match, history }) => {
       <Aside active={asideActive}>
         {asideActive && <Avatars users={plan.users} />}
         {asideActive && plan.ideas.map((idea) =>
-          <Card key={idea.id} idea={idea} />
+          <IdeaCard key={idea.id} idea={idea} />
         )}
       </Aside>
 
