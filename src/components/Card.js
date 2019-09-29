@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Link from './Link';
 
 const Wrapper = styled(Paper)`
-  margin: 1rem;
+  margin: ${props => props.sideMargins ? '1rem' : '1rem 0'};
   padding: 1rem 1rem 0.25rem 1rem;
 `;
 
@@ -18,20 +18,19 @@ const Title = styled.h4`
   margin: 0;
 `;
 
-const Card = withRouter(({ idea, match }) => {
+const Card = withRouter(({ title, description = null, linkDestination, sideMargins = true }) => {
   let i = 0;
 
   return (
-    <Wrapper>
-      <Title>{idea.title}</Title>
-      { idea.description &&
-        idea.description.split("\n").map((item) =>
+    <Wrapper sideMargins={sideMargins}>
+      <Title>{title}</Title>
+      { description &&
+        description.split("\n").map((item) =>
             <p key={++i}>{item}</p>
         )
       }
       <CancelWrapper>
-        <Button to={`${match.url}/${idea.id}`} component={Link}>Open</Button>
-        {/* <Button to={`${match.url}/${idea.id}/edit`} component={Link}>Edit</Button> */}
+        <Button to={linkDestination} component={Link}>Open</Button>
       </CancelWrapper>
     </Wrapper>
   );
