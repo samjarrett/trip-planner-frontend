@@ -12,7 +12,7 @@ import CREATE_NOTE_MUTATION from '../queries/create-note';
 
 
 const Wrapper = styled(Paper)`
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   display: flex;
   align-items: flex-start;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import FullPageModal from './FullPageModal';
+import Title from './Title';
 import Avatar from './Avatar';
 import Card from './Card';
 
@@ -17,7 +18,7 @@ const AvatarContainer = styled.div`
 const PlanList = ({ user }) => (
   <FullPageModal>
     <AvatarContainer><Avatar user={user} /></AvatarContainer>
-    <h2>Hey {user.firstName}!</h2>
+    <Title>Hey {user.firstName}!</Title>
     <p>You have multiple trips to choose from.</p>
     {user.plans.map((plan) =>
       <Card sideMargins={false} key={plan.key} title={plan.title || plan.key} linkDestination={`/${plan.key}`}/>
