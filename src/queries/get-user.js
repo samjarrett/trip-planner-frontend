@@ -8,6 +8,7 @@ const GET_USER_QUERY = gql`
       gravatarHash
       plans {
         key
+        title
       }
     }
   }
