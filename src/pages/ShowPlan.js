@@ -34,6 +34,10 @@ const Aside = styled.aside`
   }
 `;
 
+const Title = styled.h2`
+  margin: 0 1rem;
+`;
+
 const MenuButtonContainer = styled.div`
   position: fixed;
   top: 1rem;
@@ -82,6 +86,7 @@ const Plan = ({ plan, match, history }) => {
 
       <Aside active={asideActive}>
         {asideActive && <Avatars users={plan.users} />}
+        {asideActive && plan.title && <Title>{plan.title}</Title>}
         {asideActive && plan.ideas.map((idea) =>
           <IdeaCard key={idea.id} idea={idea} />
         )}

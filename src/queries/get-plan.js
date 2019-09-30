@@ -4,6 +4,7 @@ const GET_PLAN_QUERY = gql`
   query getPlan($key: String!) {
     plan(key: $key) {
       id
+      title
       key
       centerLatitude
       centerLongitude
