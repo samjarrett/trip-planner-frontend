@@ -87,7 +87,11 @@ const CreateIdeaModal = withRouter((props) => {
   }
 
   useEffect(() => {
+    if (!map) {
+      return;
+    }
     const autocomplete = new google.maps.places.Autocomplete(autocompleteEl.current);
+    autocomplete.bindTo('bounds', map);
 
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
@@ -115,7 +119,7 @@ const CreateIdeaModal = withRouter((props) => {
         map.setZoom(17);
       }
     });
-  });
+  }, [map, google.maps.places.Autocomplete, state]);
 
   return (
     <Modal>
