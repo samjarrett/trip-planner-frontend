@@ -8,6 +8,10 @@ import Link from './Link';
 const Wrapper = styled(Paper)`
   margin: ${props => props.sideMargins ? '1rem' : '1rem 0'};
   padding: 1rem 1rem 0.25rem 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const CancelWrapper = styled.div`

@@ -10,6 +10,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import Link from './Link';
+import Modal from './LeftSideModal';
+import Title from './Title';
 import IDEA_ICONS from '../marker-icons';
 
 import GET_PLAN_QUERY from '../queries/get-plan';
@@ -20,22 +22,6 @@ const DEFAULT_STATE = {
   title: '',
   description: ''
 };
-
-const Modal = styled.div`
-  position: fixed;
-  top: calc(25vh / 2);
-  z-index: 1000;
-  width: 470px;
-  max-width: 100%;
-  height: 75vh;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid #ddd;
-  padding: 1rem;
-  overflow: auto;
-  @media (min-width: 768px) {
-    margin-left: 1rem;
-  }
-`;
 
 const CancelButton = styled(Button)`
   float: right;
@@ -123,7 +109,7 @@ const CreateIdeaModal = withRouter((props) => {
 
   return (
     <Modal>
-      <h2>Create a new idea</h2>
+      <Title>Create a new idea</Title>
       <form onSubmit={e => {
         e.preventDefault();
         createIdea({

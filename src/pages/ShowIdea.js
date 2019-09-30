@@ -3,9 +3,10 @@ import { Marker } from 'google-maps-react';
 import withIdea from '../withIdea';
 import Map from '../components/Map';
 import ShowIdeaModal from '../components/ShowIdeaModal';
+import BackButton from '../components/BackButton';
 import IDEA_ICONS from '../marker-icons';
 
-const ShowIdea = ({ idea, match }) => {
+const ShowIdea = ({ idea, match, map }) => {
   const planKey = match.params.key;
 
   return (
@@ -15,6 +16,7 @@ const ShowIdea = ({ idea, match }) => {
         icon={IDEA_ICONS[idea.type]}
         />
       <ShowIdeaModal idea={idea} planKey={planKey} />
+      <BackButton url={`/${planKey}`}/>
     </Map>
   );
 }

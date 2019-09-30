@@ -8,7 +8,7 @@ import Avatar from './Avatar';
 const dateFormatter = speedDate('MMMM D, YYYY [at] h:mma');
 
 const Wrapper = styled(Paper)`
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem 1rem 0.5rem 1rem;
 `;
 
