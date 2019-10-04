@@ -1,0 +1,13 @@
+#!/bin/bash -eu
+set -o pipefail
+
+rm -rf build
+
+docker-compose build builder
+
+docker-compose run \
+  -e REACT_APP_BACKEND_HOST="https://planner-api.sam.wtf" \
+  --rm \
+  builder
+
+aws s3 sync ./build/. s3://planner-frontend-sitebucket-154pitzj4aims/
