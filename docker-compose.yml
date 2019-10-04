@@ -11,3 +11,12 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+
+  builder:
+    build: .
+    command: npm run build
+    environment:
+      REACT_APP_BACKEND_HOST:
+      GOOGLE_API_KEY:
+    volumes:
+      - ./build:/app/build

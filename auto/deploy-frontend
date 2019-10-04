@@ -1,0 +1,18 @@
+#!/bin/bash -eu
+set -o pipefail
+
+if [ -f ".env" ]; then
+  source ".env"
+fi
+
+rm -rf build
+
+docker-compose build builder
+
+docker-compose run \
+  -e REACT_APP_BACKEND_HOST=${REACT_APP_BACKEND_HOST} \
+  -e GOOGLE_API_KEY=${GOOGLE_API_KEY} \
+  --rm \
+  builder
+
+aws s3 sync ./build/. "s3://${S3_BUCKET}/"
