@@ -8,6 +8,7 @@ import Avatars from '../components/Avatars';
 import Map from '../components/Map';
 import IdeaCard from '../components/IdeaCard';
 import Link from '../components/Link';
+import Debug from '../components/MapDebug';
 import withPlan from '../PlanWrapper';
 import IDEA_ICONS from '../marker-icons';
 
@@ -102,6 +103,7 @@ const Plan = ({ plan, match, history }) => {
             position={{lat: idea.latitude, lng: idea.longitude}}
             icon={IDEA_ICONS[idea.type]} />
         )}
+        <Debug />
       </Map>
     </div>
   );
