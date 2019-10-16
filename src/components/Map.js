@@ -55,7 +55,6 @@ export const MapContainer = ({ children, latitude, longitude, zoomLevel, visible
          styles={MAP_STYLE}
          style={mapStyle}
          containerStyle={containerStyle}
-         scrollwheel={false}
          visible={visible}
     >
       {children}
