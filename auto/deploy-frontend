@@ -7,7 +7,7 @@ fi
 
 rm -rf build
 
-docker-compose build builder
+docker-compose build --pull builder
 
 docker-compose run \
   -e REACT_APP_BACKEND_HOST=${REACT_APP_BACKEND_HOST} \
