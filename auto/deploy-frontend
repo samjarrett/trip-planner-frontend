@@ -3,7 +3,7 @@ set -o pipefail
 
 rm -rf build
 
-docker-compose build builder
+docker-compose build --pull builder
 
 docker-compose run \
   -e REACT_APP_BACKEND_HOST="https://planner-api.sam.wtf" \

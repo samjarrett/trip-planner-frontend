@@ -1,15 +1,20 @@
 import { gql } from 'apollo-boost';
 
+const USER_FIELDS = `
+  id
+  firstName
+  gravatarHash
+  plans {
+    key
+    title
+  }
+`;
+export { USER_FIELDS };
+
 const GET_USER_QUERY = gql`
   query getUser {
     user {
-      id
-      firstName
-      gravatarHash
-      plans {
-        key
-        title
-      }
+      ${USER_FIELDS}
     }
   }
 `;
