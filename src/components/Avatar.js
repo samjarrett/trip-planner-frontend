@@ -34,7 +34,6 @@ const AvatarButton = styled(MUIAvatar)`
 
 const Avatar = ({ user }) => {
   const { data, client } = useQuery(GET_AVATAR_VALIDITY);
-  console.log(data);
 
   const brokenAvatar = data.brokenAvatars.find((element) => {
     return element.gravatarHash === user.gravatarHash;
