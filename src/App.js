@@ -23,7 +23,8 @@ const client = new ApolloClient({
   clientState: {
     resolvers: {},
     defaults: {
-      brokenAvatars: []
+      brokenAvatars: [],
+      activeFilter: "all"
     }
   }
 });

@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Fab from '@material-ui/core/Fab';
 import MenuIcon from '@material-ui/icons/Menu';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { useQuery } from '@apollo/react-hooks';
+
+import GET_ACTIVE_FILTER from '../queries/local/get-active-filter';
+import filterIdeas from '../utils/idea-filter';
 import Avatars from '../components/Avatars';
 import IdeaCard from '../components/IdeaCard';
 
@@ -28,8 +34,11 @@ const Aside = styled.aside`
   }
 `;
 
-const Title = styled.h2`
+const TitleWrapepr = styled.div`
   margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const MenuButtonContainer = styled.div`
@@ -49,11 +58,18 @@ function updateAsideActiveStatusInBrowser(asideActive) {
 
 const PlanAside = ({ plan }) => {
   const [asideActive, setAsideActive] = useState(isAsideActiveInBrowser());
+  const { data: { activeFilter }, client } = useQuery(GET_ACTIVE_FILTER);
 
   useEffect(() => {
     updateAsideActiveStatusInBrowser(asideActive);
   }, [asideActive]);
 
+  const handleActiveFilterChange = ({ target }) => {
+    const activeFilter = target.value;
+    client.writeData({ data: { activeFilter } });
+  }
+
+  const ideas = filterIdeas(activeFilter, plan.ideas);
 
   return (
     <>
@@ -65,8 +81,19 @@ const PlanAside = ({ plan }) => {
 
       <Aside active={asideActive}>
         {asideActive && <Avatars users={plan.users} />}
-        {asideActive && plan.title && <Title>{plan.title}</Title>}
-        {asideActive && plan.ideas.map((idea) =>
+        {asideActive && <TitleWrapepr>
+          <h2>{plan.title}</h2>
+          <FormControl>
+            <Select native value={activeFilter} onChange={handleActiveFilterChange}>
+              <option value="all">Show All</option>
+              <option value="accommodation">Accommodation</option>
+              <option value="idea">Idea</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="shopping">Shopping</option>
+            </Select>
+          </FormControl>
+        </TitleWrapepr> }
+        {asideActive && ideas.map((idea) =>
           <IdeaCard key={`aside-${idea.id}`} idea={idea} />
         )}
       </Aside>
