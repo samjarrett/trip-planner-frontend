@@ -11,7 +11,7 @@ docker-compose build --pull builder
 
 docker-compose run \
   -e REACT_APP_BACKEND_HOST=${REACT_APP_BACKEND_HOST} \
-  -e GOOGLE_API_KEY=${GOOGLE_API_KEY} \
+  -e REACT_APP_GOOGLE_API_KEY=${REACT_APP_GOOGLE_API_KEY} \
   --rm \
   builder
 

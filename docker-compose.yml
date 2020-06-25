@@ -17,6 +17,6 @@ services:
     command: npm run build
     environment:
       REACT_APP_BACKEND_HOST:
-      GOOGLE_API_KEY:
+      REACT_APP_GOOGLE_API_KEY:
     volumes:
       - ./build:/app/build

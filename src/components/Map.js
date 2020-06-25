@@ -46,16 +46,16 @@ export const MapContainer = ({ children, latitude, longitude, zoomLevel, visible
 
   return (
     <Map google={google}
-         initialCenter={initialCenter}
-         zoom={zoomLevel}
-         mapType="ROADMAP"
-         mapTypeControl={false}
-         streetViewControl={false}
-         fullscreenControl={false}
-         styles={MAP_STYLE}
-         style={mapStyle}
-         containerStyle={containerStyle}
-         visible={visible}
+      initialCenter={initialCenter}
+      zoom={zoomLevel}
+      mapType="ROADMAP"
+      mapTypeControl={false}
+      streetViewControl={false}
+      fullscreenControl={false}
+      styles={MAP_STYLE}
+      style={mapStyle}
+      containerStyle={containerStyle}
+      visible={visible}
     >
       {children}
     </Map>
@@ -63,5 +63,5 @@ export const MapContainer = ({ children, latitude, longitude, zoomLevel, visible
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GOOGLE_API_KEY
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
 })(MapContainer)
