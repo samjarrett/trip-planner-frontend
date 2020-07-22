@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 import { USER_FIELDS } from './get-user';
 
 const LOGIN_MUTATION = gql`

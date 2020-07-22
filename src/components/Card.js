@@ -28,9 +28,9 @@ const Card = withRouter(({ title, description = null, linkDestination, sideMargi
   return (
     <Wrapper sideMargins={sideMargins}>
       <Title>{title}</Title>
-      { description &&
+      {description &&
         description.split("\n").map((item) =>
-            <p key={++i}>{item}</p>
+          <p key={++i}>{item}</p>
         )
       }
       <CancelWrapper>

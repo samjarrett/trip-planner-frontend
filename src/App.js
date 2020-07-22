@@ -1,6 +1,5 @@
 import React from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Home from './pages/Home';
@@ -20,18 +19,12 @@ const BACKEND_HOST = process.env.REACT_APP_BACKEND_HOST || window.location.origi
 const client = new ApolloClient({
   uri: `${BACKEND_HOST}/graphql/`,
   credentials: 'include',
-  clientState: {
-    resolvers: {},
-    defaults: {
-      brokenAvatars: [],
-      activeFilter: "all"
-    }
-  }
+  cache: new InMemoryCache()
 });
 
 const App = () => (
   <ApolloProvider client={client}>
-    <GlobalStyle/>
+    <GlobalStyle />
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />

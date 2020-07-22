@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import GET_IDEA_QUERY from './queries/get-idea';
 
 function withIdea(WrappedComponent) {

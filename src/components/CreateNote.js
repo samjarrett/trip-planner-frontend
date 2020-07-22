@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -42,10 +42,12 @@ const CreateNote = ({ user, ideaId }) => {
       cache.writeQuery({
         query: GET_IDEA_QUERY,
         variables: { id: ideaId },
-        data: { idea: {
-          ...idea,
-          notes
-        } },
+        data: {
+          idea: {
+            ...idea,
+            notes
+          }
+        },
       });
 
       setState(DEFAULT_STATE);

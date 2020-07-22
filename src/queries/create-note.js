@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 const CREATE_NOTE_MUTATION = gql`
   mutation CreateNote($input: NoteMutationInput!) {

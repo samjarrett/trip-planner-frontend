@@ -4,9 +4,7 @@ import Fab from '@material-ui/core/Fab';
 import MenuIcon from '@material-ui/icons/Menu';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { useQuery } from '@apollo/react-hooks';
 
-import GET_ACTIVE_FILTER from '../queries/local/get-active-filter';
 import filterIdeas from '../utils/idea-filter';
 import Avatars from '../components/Avatars';
 import IdeaCard from '../components/IdeaCard';
@@ -56,17 +54,15 @@ function updateAsideActiveStatusInBrowser(asideActive) {
   window.localStorage.asideActive = asideActive ? "active" : "inactive";
 }
 
-const PlanAside = ({ plan }) => {
+const PlanAside = ({ plan, activeFilter, setActiveFilter }) => {
   const [asideActive, setAsideActive] = useState(isAsideActiveInBrowser());
-  const { data: { activeFilter }, client } = useQuery(GET_ACTIVE_FILTER);
 
   useEffect(() => {
     updateAsideActiveStatusInBrowser(asideActive);
   }, [asideActive]);
 
   const handleActiveFilterChange = ({ target }) => {
-    const activeFilter = target.value;
-    client.writeData({ data: { activeFilter } });
+    setActiveFilter(target.value);
   }
 
   const ideas = filterIdeas(activeFilter, plan.ideas);
@@ -92,7 +88,7 @@ const PlanAside = ({ plan }) => {
               <option value="shopping">Shopping</option>
             </Select>
           </FormControl>
-        </TitleWrapepr> }
+        </TitleWrapepr>}
         {asideActive && ideas.map((idea) =>
           <IdeaCard key={`aside-${idea.id}`} idea={idea} />
         )}

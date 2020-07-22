@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 const CREATE_IDEA_MUTATION = gql`
   mutation CreateIdea($input: IdeaMutationInput!) {
