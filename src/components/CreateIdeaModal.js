@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { withRouter } from "react-router-dom";
 import { Marker } from 'google-maps-react';
 import TextField from '@material-ui/core/TextField';
@@ -52,10 +52,12 @@ const CreateIdeaModal = withRouter((props) => {
       cache.writeQuery({
         query: GET_PLAN_QUERY,
         variables: { key: planKey },
-        data: { plan: {
-          ...plan,
-          ideas
-        } },
+        data: {
+          plan: {
+            ...plan,
+            ideas
+          }
+        },
       });
     },
     onCompleted: () => {
@@ -154,7 +156,7 @@ const CreateIdeaModal = withRouter((props) => {
           <CancelButton color="secondary" to={`/${plan.key}`} component={Link}>Cancel</CancelButton>
         </div>
       </form>
-      { state.googlePlaceId && <Marker google={google} map={map} position={{lat: state.latitude, lng: state.longitude}} icon={IDEA_ICONS[state.type.toUpperCase()]} />}
+      {state.googlePlaceId && <Marker google={google} map={map} position={{ lat: state.latitude, lng: state.longitude }} icon={IDEA_ICONS[state.type.toUpperCase()]} />}
     </Modal>
   );
 });

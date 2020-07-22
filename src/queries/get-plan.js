@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 const GET_PLAN_QUERY = gql`
   query getPlan($key: String!) {

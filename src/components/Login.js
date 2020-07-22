@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { withRouter } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -62,7 +62,7 @@ const Login = withRouter(({ history }) => {
         });
       }}>
         <TextField fullWidth={true} label="Username" name="username" type="email" placeholder="my@email.com" value={state.username} onChange={handleChange} error={state.errors} />
-        <TextField fullWidth={true} label="Password" name="password" type="password" value={state.password} onChange={handleChange} error={state.errors} helperText={state.errors && "Login failed"}/>
+        <TextField fullWidth={true} label="Password" name="password" type="password" value={state.password} onChange={handleChange} error={state.errors} helperText={state.errors && "Login failed"} />
         <ButtonContainer>
           <Button color="primary" variant="contained" type="submit">
             Login
