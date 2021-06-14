@@ -8,9 +8,9 @@ services:
     environment:
       CHOKIDAR_USEPOLLING: "true"
       REACT_APP_BACKEND_HOST: "http://localhost:8000"
+      REACT_APP_GOOGLE_API_KEY:
     volumes:
       - .:/app
-      - /app/node_modules
 
   builder:
     build: .
