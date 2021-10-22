@@ -15,7 +15,7 @@ const Aside = styled.aside`
   left: 0;
   width: 100%;
   max-height: 100%;
-  z-index: 1000;
+  z-index: 800;
   background-color: rgba(255, 255, 255, 0.9);
   overflow: auto;
   padding-bottom: 1rem;
