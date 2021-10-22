@@ -14,11 +14,11 @@ const Wrapper = styled(Paper)`
 
 const Card = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: ${props => props.automated ? "center" : "flex-start"};
 `;
 
 const Body = styled.p`
-  margin-left: 1rem;
+  margin: 0 0 0 1rem;
   flex-grow: 1;
 `;
 
@@ -35,7 +35,7 @@ const DateLine = styled.time`
 
 const Note = ({ note }) => (
   <Wrapper>
-    <Card key={note.id}>
+    <Card key={note.id} automated={note.automated}>
       <Avatar user={note.creator} />
       <Body>{note.body}</Body>
       {note.automated && <Chip variant="outlined" size="small" label="Auto" />}

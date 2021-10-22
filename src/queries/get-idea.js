@@ -13,7 +13,7 @@ const GET_IDEA_QUERY = gql`
       notes {
         id
         created
-        creator{
+        creator {
           firstName
           lastName
           gravatarHash
