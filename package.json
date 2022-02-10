@@ -35,6 +35,6 @@
     ]
   },
   "devDependencies": {
-    "parcel": "^2.3.0"
+    "parcel": "^2.3.1"
   }
 }
