@@ -28,7 +28,7 @@ const Plan = ({ plan, history }) => {
   const ideas = filterIdeas(activeFilter, plan.ideas);
 
   return (
-    <div>
+    <>
       <AddButtonContainer>
         <Link href={`/${plan.key}/new`}>
           <Fab color="primary" aria-label="add">
@@ -51,7 +51,7 @@ const Plan = ({ plan, history }) => {
         )}
         <Debug />
       </Map>
-    </div>
+    </>
   );
 }
 
