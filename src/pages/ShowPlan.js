@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Marker } from 'google-maps-react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'wouter';
 
 import Map from '../components/Map';
-import Link from '../components/Link';
 import Debug from '../components/MapDebug';
 import PlanAside from '../components/PlanAside';
 import withPlan from '../PlanWrapper';
@@ -30,9 +30,11 @@ const Plan = ({ plan, history }) => {
   return (
     <div>
       <AddButtonContainer>
-        <Fab color="primary" aria-label="add" to={`/${plan.key}/new`} component={Link}>
-          <AddIcon />
-        </Fab>
+        <Link href={`/${plan.key}/new`}>
+          <Fab color="primary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Link>
       </AddButtonContainer>
 
       <PlanAside plan={plan} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />

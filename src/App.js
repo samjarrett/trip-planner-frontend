@@ -1,9 +1,11 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'wouter';
 import { createGlobalStyle } from 'styled-components';
 import Home from './pages/Home';
-import Plan from './pages/Plan';
+import ShowPlan from './pages/ShowPlan';
+import CreateIdea from './pages/CreateIdea';
+import ShowIdea from './pages/ShowIdea';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -25,12 +27,12 @@ const client = new ApolloClient({
 const App = () => (
   <ApolloProvider client={client}>
     <GlobalStyle />
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/:key" component={Plan} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/:key/new" component={CreateIdea} />
+      <Route path="/:key/:idea" component={ShowIdea} />
+      <Route path="/:key" component={ShowPlan} />
+      <Route path="/" component={Home} />
+    </Switch>
   </ApolloProvider>
 );
 

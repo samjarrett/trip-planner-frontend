@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { withRouter } from "react-router-dom";
+import { useLocation } from "wouter";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
@@ -20,7 +20,8 @@ const ButtonContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const Login = withRouter(({ history }) => {
+const Login = () => {
+  const [location, setLocation] = useLocation();
   const [state, setState] = useState(DEFAULT_STATE);
   const [login] = useMutation(LOGIN_MUTATION, {
     update(cache, { data: { login: { success, user } } }) {
@@ -35,7 +36,7 @@ const Login = withRouter(({ history }) => {
     },
     onCompleted: () => {
       if (!state.errors) {
-        history.push(`/`);
+        setLocation('/');
       }
     }
   });

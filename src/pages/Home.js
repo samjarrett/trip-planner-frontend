@@ -1,6 +1,6 @@
 import React from 'react';
 import withUser from '../withUser';
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'wouter';
 import Login from '../components/Login';
 import PlanList from '../components/PlanList';
 

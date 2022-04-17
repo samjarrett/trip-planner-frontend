@@ -4,7 +4,7 @@ import GET_PLAN_QUERY from './queries/get-plan';
 
 function withPlan(WrappedComponent) {
   return (props) => {
-    const { data, error, loading } = useQuery(GET_PLAN_QUERY, { variables: { key: props.match.params.key } });
+    const { data, error, loading } = useQuery(GET_PLAN_QUERY, { variables: { key: props.params.key } });
 
     if (loading) return null;
     if (error) return (

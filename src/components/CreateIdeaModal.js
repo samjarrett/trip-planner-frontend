@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { withRouter } from "react-router-dom";
+import { useLocation } from "wouter";
 import { Marker } from 'google-maps-react';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
@@ -9,7 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'wouter';
 import Modal from './LeftSideModal';
 import Title from './Title';
 import IDEA_ICONS from '../marker-icons';
@@ -39,7 +39,8 @@ function convertStateToInput(plan, state) {
   };
 }
 
-const CreateIdeaModal = withRouter((props) => {
+const CreateIdeaModal = (props) => {
+  const [location, setLocation] = useLocation();
   const [state, setState] = useState(DEFAULT_STATE);
   const autocompleteEl = useRef(null);
   const { google, map, history, plan } = props;
@@ -61,7 +62,7 @@ const CreateIdeaModal = withRouter((props) => {
       });
     },
     onCompleted: () => {
-      history.push(`/${plan.key}`);
+      setLocation(`/${plan.key}`);
     }
   });
 
@@ -153,12 +154,14 @@ const CreateIdeaModal = withRouter((props) => {
           <Button color="primary" variant="contained" type="submit">
             Save
           </Button>
-          <CancelButton color="secondary" to={`/${plan.key}`} component={Link}>Cancel</CancelButton>
+          <Link href={`/${plan.key}`}>
+            <CancelButton color="secondary">Cancel</CancelButton>
+          </Link>
         </div>
       </form>
       {state.googlePlaceId && <Marker google={google} map={map} position={{ lat: state.latitude, lng: state.longitude }} icon={IDEA_ICONS[state.type.toUpperCase()]} />}
     </Modal>
   );
-});
+};
 
 export default CreateIdeaModal;

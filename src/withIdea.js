@@ -4,7 +4,7 @@ import GET_IDEA_QUERY from './queries/get-idea';
 
 function withIdea(WrappedComponent) {
   return (props) => {
-    const { data, error, loading } = useQuery(GET_IDEA_QUERY, { variables: { id: props.match.params.idea } });
+    const { data, error, loading } = useQuery(GET_IDEA_QUERY, { variables: { id: props.params.idea } });
 
     if (loading) return null;
     if (error) return (
