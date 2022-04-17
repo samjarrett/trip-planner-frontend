@@ -1,9 +1,12 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { useLocation } from "wouter";
 import Card from './Card';
 
 
-const IdeaCard = withRouter(({ idea, match }) => (
-  <Card title={idea.title} description={idea.description} linkDestination={`${match.url}/${idea.id}`} />
-));
+const IdeaCard = ({ idea }) => {
+  const [location, setLocation] = useLocation();
+  return (
+    <Card title={idea.title} description={idea.description} linkDestination={`${location}/${idea.id}`} />
+  );
+};
 export default IdeaCard;

@@ -6,17 +6,17 @@ import ShowIdeaModal from '../components/ShowIdeaModal';
 import BackButton from '../components/BackButton';
 import IDEA_ICONS from '../marker-icons';
 
-const ShowIdea = ({ idea, match, map }) => {
-  const planKey = match.params.key;
+const ShowIdea = ({ idea, params, map }) => {
+  const planKey = params.key;
 
   return (
     <Map latitude={idea.latitude} longitude={idea.longitude} zoomLevel={17}>
       <Marker
-        position={{lat: idea.latitude, lng: idea.longitude}}
+        position={{ lat: idea.latitude, lng: idea.longitude }}
         icon={IDEA_ICONS[idea.type]}
-        />
+      />
       <ShowIdeaModal idea={idea} planKey={planKey} />
-      <BackButton url={`/${planKey}`}/>
+      <BackButton url={`/${planKey}`} />
     </Map>
   );
 }

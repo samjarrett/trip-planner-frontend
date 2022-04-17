@@ -2,7 +2,7 @@ import React from 'react';
 import Fab from '@material-ui/core/Fab';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import styled from 'styled-components';
-import Link from './Link';
+import { Link } from 'wouter';
 
 const BackButtonContainer = styled.div`
   position: fixed;
@@ -13,9 +13,11 @@ const BackButtonContainer = styled.div`
 
 const BackButton = ({ url }) => (
   <BackButtonContainer>
-    <Fab color="primary" aria-label="add" to={url} component={Link}>
-      <ArrowBack />
-    </Fab>
+    <Link href={url}>
+      <Fab color="primary" aria-label="add">
+        <ArrowBack />
+      </Fab>
+    </Link>
   </BackButtonContainer>
 );
 export default BackButton;
