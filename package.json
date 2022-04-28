@@ -12,11 +12,11 @@
     "react-dom": "^18.1.0",
     "speed-date": "^1.0.0",
     "styled-components": "^5.3.5",
-    "wouter": "^2.8.0-alpha.2"
+    "wouter": "^2.7.3"
   },
   "scripts": {
     "start": "parcel serve src/index.html --port 3000",
-    "build": "parcel build src/index.html --no-source-maps"
+    "build": "mkdir -p dist && rm -rf dist/* && parcel build src/index.html"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,6 +26,8 @@
       "> 3%",
       "last 2 versions",
       "not dead",
+      "not ie 11",
+      "not ie_mob 11",
       "not op_mini all"
     ],
     "development": [
