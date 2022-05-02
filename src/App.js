@@ -2,6 +2,7 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Route, Switch } from 'wouter';
 import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Home from './pages/Home';
 import ShowPlan from './pages/ShowPlan';
 import CreateIdea from './pages/CreateIdea';
@@ -24,15 +25,19 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+const theme = createMuiTheme();
+
 const App = () => (
   <ApolloProvider client={client}>
-    <GlobalStyle />
-    <Switch>
-      <Route path="/:key/new" component={CreateIdea} />
-      <Route path="/:key/:idea" component={ShowIdea} />
-      <Route path="/:key" component={ShowPlan} />
-      <Route path="/" component={Home} />
-    </Switch>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Switch>
+        <Route path="/:key/new" component={CreateIdea} />
+        <Route path="/:key/:idea" component={ShowIdea} />
+        <Route path="/:key" component={ShowPlan} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </ThemeProvider>
   </ApolloProvider>
 );
 
