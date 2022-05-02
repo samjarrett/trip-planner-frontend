@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useLocation } from "wouter";
 import { Marker } from 'google-maps-react';
-import TextField from '@material-ui/core/TextField';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { Link } from 'wouter';
 import Modal from './LeftSideModal';
@@ -119,9 +119,9 @@ const CreateIdeaModal = (props) => {
           variables: { input: convertStateToInput(plan, state) }
         });
       }}>
-        <TextField fullWidth={true} label="Search for a location" inputRef={autocompleteEl} type="text" autoComplete="false" />
-        <TextField fullWidth={true} label="Idea title" name="title" type="text" defaultValue={state.placeName} placeholder={state.placeName} value={state.title} onChange={handleChange} />
-        <TextField fullWidth={true} label="Description (optional)" name="description" type="text" multiline={true} value={state.description} onChange={handleChange} />
+        <TextField fullWidth={true} variant="standard" label="Search for a location" inputRef={autocompleteEl} type="text" autoComplete="false" />
+        <TextField fullWidth={true} variant="standard" variant="standard" label="Idea title" name="title" type="text" defaultValue={state.placeName} placeholder={state.placeName} value={state.title} onChange={handleChange} />
+        <TextField fullWidth={true} variant="standard" label="Description (optional)" name="description" type="text" multiline={true} value={state.description} onChange={handleChange} />
         <FormControl component="fieldset">
           <RadioGroup name="type" value={state.type} onChange={handleChange} row>
             <FormControlLabel

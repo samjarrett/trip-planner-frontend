@@ -1,5 +1,5 @@
 import React from 'react';
-import MUIAvatar from '@material-ui/core/Avatar';
+import MUIAvatar from '@mui/material/Avatar';
 import styled from 'styled-components';
 import { makeVar } from '@apollo/client';
 

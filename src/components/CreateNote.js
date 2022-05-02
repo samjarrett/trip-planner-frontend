@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import Avatar from './Avatar';
 import withUser from '../withUser';
@@ -72,7 +72,7 @@ const CreateNote = ({ user, ideaId }) => {
           variables: { input: Object.assign({}, state, { idea: ideaId }) }
         });
       }}>
-        <TextField fullWidth={true} label="Note" name="body" type="text" multiline={true} variant="outlined" value={state.body} onChange={handleChange} />
+        <TextField fullWidth={true} variant="standard" label="Note" name="body" type="text" multiline={true} variant="outlined" value={state.body} onChange={handleChange} />
         <CancelWrapper>
           <Button color="primary" variant="outlined" size="small" type="submit">
             Save

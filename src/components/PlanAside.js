@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Fab from '@material-ui/core/Fab';
-import MenuIcon from '@material-ui/icons/Menu';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Fab from '@mui/material/Fab';
+import MenuIcon from '@mui/icons-material/Menu';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import filterIdeas from '../utils/idea-filter';
 import Avatars from '../components/Avatars';
@@ -79,7 +79,7 @@ const PlanAside = ({ plan, activeFilter, setActiveFilter }) => {
         {asideActive && <TitleWrapepr>
           <h2>{plan.title}</h2>
           <FormControl>
-            <Select native value={activeFilter} onChange={handleActiveFilterChange}>
+            <Select native variant="standard" value={activeFilter} onChange={handleActiveFilterChange}>
               <option value="all">Show All</option>
               <option value="accommodation">Accommodation</option>
               <option value="idea">Idea</option>

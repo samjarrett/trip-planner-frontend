@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useLocation } from "wouter";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 
 import FullPageModal from './FullPageModal';
@@ -48,7 +48,7 @@ const Login = () => {
       ...state,
       [name]: value,
     });
-  }
+  };
 
   return (
     <FullPageModal>
@@ -62,8 +62,8 @@ const Login = () => {
           }
         });
       }}>
-        <TextField fullWidth={true} label="Username" name="username" type="email" placeholder="my@email.com" value={state.username} onChange={handleChange} error={state.errors} />
-        <TextField fullWidth={true} label="Password" name="password" type="password" value={state.password} onChange={handleChange} error={state.errors} helperText={state.errors && "Login failed"} />
+        <TextField fullWidth={true} variant="standard" label="Username" name="username" type="email" placeholder="my@email.com" value={state.username} onChange={handleChange} error={state.errors} />
+        <TextField fullWidth={true} variant="standard" label="Password" name="password" type="password" value={state.password} onChange={handleChange} error={state.errors} helperText={state.errors && "Login failed"} />
         <ButtonContainer>
           <Button color="primary" variant="contained" type="submit">
             Login
@@ -72,6 +72,6 @@ const Login = () => {
       </form>
     </FullPageModal>
   );
-});
+};
 
 export default Login;

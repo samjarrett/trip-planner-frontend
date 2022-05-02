@@ -1,6 +1,6 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import ArrowBack from '@material-ui/icons/ArrowBack';
+import Fab from '@mui/material/Fab';
+import ArrowBack from '@mui/icons-material/ArrowBack';
 import styled from 'styled-components';
 import { Link } from 'wouter';
 

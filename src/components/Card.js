@@ -1,6 +1,6 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { Link } from 'wouter';
 
