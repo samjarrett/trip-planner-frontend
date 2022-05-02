@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Marker } from 'google-maps-react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 import Map from '../components/Map';
 import Debug from '../components/MapDebug';
@@ -20,9 +20,10 @@ const AddButtonContainer = styled.div`
 `;
 
 const Plan = ({ plan, history }) => {
+  const [location, setLocation] = useLocation();
   const [activeFilter, setActiveFilter] = useState("all");
   const onMarkerClick = (props) => {
-    history.push(`/${plan.key}/${props.idea.id}`)
+    setLocation(`/${plan.key}/${props.idea.id}`);
   };
 
   const ideas = filterIdeas(activeFilter, plan.ideas);
