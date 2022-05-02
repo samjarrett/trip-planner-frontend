@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'wouter';
 
 const Wrapper = styled(Paper)`
-  margin: ${props => props.sideMargins ? '1rem' : '1rem 0'};
+  margin: 1rem 0;
   padding: 1rem 1rem 0.25rem 1rem;
 
   &:last-child {
@@ -21,7 +21,7 @@ const Title = styled.h4`
   margin: 0;
 `;
 
-const Card = ({ title, description = null, linkDestination, sideMargins = true }) => {
+const Card = ({ title, description = null, linkDestination }) => {
   let i = 0;
 
   return (

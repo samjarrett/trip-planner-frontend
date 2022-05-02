@@ -18,7 +18,7 @@ const Aside = styled.aside`
   z-index: 800;
   background-color: rgba(255, 255, 255, 0.9);
   overflow: auto;
-  padding-bottom: 1rem;
+  padding: 0 1rem 1rem 1rem;
 
   transition: left 1000ms ease, top 1000ms ease;
 
@@ -33,7 +33,6 @@ const Aside = styled.aside`
 `;
 
 const TitleWrapepr = styled.div`
-  margin: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

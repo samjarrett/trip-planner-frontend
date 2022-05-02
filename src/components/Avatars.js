@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Avatar from './Avatar';
 
 const Wrapper = styled.div`
-  margin: 1rem 1rem 1rem 5rem;
+  margin: 1rem 0rem 1rem 4rem;
   padding: 1rem;
   display: flex;
 `;

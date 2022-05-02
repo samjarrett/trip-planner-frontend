@@ -21,7 +21,7 @@ const PlanList = ({ user }) => (
     <Title>Hey {user.firstName}!</Title>
     <p>You have multiple trips to choose from.</p>
     {user.plans.map((plan) =>
-      <Card sideMargins={false} key={plan.key} title={plan.title || plan.key} linkDestination={`/${plan.key}`}/>
+      <Card key={plan.key} title={plan.title || plan.key} linkDestination={`/${plan.key}`} />
     )}
   </FullPageModal>
 );
