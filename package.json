@@ -9,8 +9,8 @@
     "@mui/styled-engine-sc": "^5.6.1",
     "@samjarrett/google-maps-react": "2.0.7",
     "graphql": "^16.4.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "speed-date": "^1.0.0",
     "styled-components": "^5.3.5",
     "wouter": "^2.7.3"
