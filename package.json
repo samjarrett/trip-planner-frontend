@@ -5,7 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.3",
+    "@mui/material": "^5.10.0",
     "@mui/styled-engine-sc": "^5.10.0",
     "@samjarrett/google-maps-react": "2.0.8",
     "graphql": "^16.5.0",
