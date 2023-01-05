@@ -13,7 +13,7 @@
     "react-dom": "^18.2.0",
     "speed-date": "^1.0.0",
     "styled-components": "^5.3.6",
-    "wouter": "^2.9.0"
+    "wouter": "^2.9.1"
   },
   "scripts": {
     "start": "parcel serve src/index.html --port 3000",
